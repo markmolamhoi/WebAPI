@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="lsCommonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="stp_wf_rss_scs_SPM_GridInformationTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ContentType" Type="varchar" Mode="In" />
+          <Parameter Name="DivisionCode" Type="varchar" Mode="In" />
+          <Parameter Name="RegionCode" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyCode" Type="varchar" Mode="In" />
+          <Parameter Name="OUCode" Type="varchar" Mode="In" />
+          <Parameter Name="SearchKey" Type="nvarchar" Mode="In" />
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="Week" Type="int" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="SalesmanCode" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="lsCommonModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="lsCommonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="lsCommonEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="stp_wf_rss_scs_SPM_GridInformationTable" ReturnType="Collection(lsCommonModel.stp_wf_rss_scs_SPM_GridInformationTable_Result)">
+            <Parameter Name="ContentType" Mode="In" Type="String" />
+            <Parameter Name="DivisionCode" Mode="In" Type="String" />
+            <Parameter Name="RegionCode" Mode="In" Type="String" />
+            <Parameter Name="CompanyCode" Mode="In" Type="String" />
+            <Parameter Name="OUCode" Mode="In" Type="String" />
+            <Parameter Name="SearchKey" Mode="In" Type="String" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="Week" Mode="In" Type="Int32" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="SalesmanCode" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="stp_wf_rss_scs_SPM_GridInformationTable_Result">
+          <Property Type="String" Name="銷售員編號" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="銷售員" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="總目標" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="高檔產品" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="中檔產品" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="低檔產品" Nullable="true" Precision="18" Scale="4" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="lsCommonModelStoreContainer" CdmEntityContainer="lsCommonEntities" >
+          <FunctionImportMapping FunctionImportName="stp_wf_rss_scs_SPM_GridInformationTable" FunctionName="lsCommonModel.Store.stp_wf_rss_scs_SPM_GridInformationTable">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="lsCommonModel.stp_wf_rss_scs_SPM_GridInformationTable_Result">
+                <ScalarProperty Name="銷售員編號" ColumnName="銷售員編號" />
+                <ScalarProperty Name="銷售員" ColumnName="銷售員" />
+                <ScalarProperty Name="總目標" ColumnName="總目標" />
+                <ScalarProperty Name="高檔產品" ColumnName="高檔產品" />
+                <ScalarProperty Name="中檔產品" ColumnName="中檔產品" />
+                <ScalarProperty Name="低檔產品" ColumnName="低檔產品" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
